@@ -36,5 +36,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Pngs and Pdfs ###
 *.png
+*.jpg
 *.pdf
