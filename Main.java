@@ -69,10 +69,10 @@ public class Main {
                                     assetMain.startAssetManagement();
                                     break;
                                 case "2":
-                                    System.out.println("Feature not implemented yet: Financial Reports generation.");
+                                    FinancialReportExporter.generateFinancialReport("src/resources/karen_assets.txt", "Q1 2025");
                                     break;
                                 case "3":
-                                    System.out.println("Feature not implemented yet: Zakat calculation.");
+                                    ZakatReportMain.generateZakatReport(loginUser);
                                     break;
                                 case "4":
                                     System.out.println("Logging out. Goodbye!");
