@@ -1,0 +1,2 @@
+Stocks,ahmed,23.0,1747074572964,200.0
+Real Estate,palmhills apartment,1.0,1747074676016,4.5E7

@@ -3,15 +3,30 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-
+/**
+ * The `AssetManagmentPage` class provides a user interface for managing assets.
+ * It allows users to add, edit, remove, and display their assets.
+ *
+ * Features:
+ * - Interactive console-based menu for asset management.
+ * - Input validation for asset details (e.g., type, name, quantity, price).
+ * - Supports editing individual fields of an asset.
+ * - Displays assets in a user-friendly format.
+ */
 public class AssetManagmentPage {
     private final AssetService service;
     private final String[] assetTypes = {"Stocks", "Real Estate", "Crypto", "Bonds", "Commodities"};
-
+    /**
+     * Constructor that initializes the page with the given asset service.
+     *
+     * @param service The `AssetService` instance for managing assets.
+     */
     public AssetManagmentPage(AssetService service) {
         this.service = service;
     }
-
+    /**
+     * Handles the addition of a new asset.
+     */
     public void clickAddAssets() {
         Asset newAsset = displayInputFields();
         service.saveAsset(
@@ -23,7 +38,9 @@ public class AssetManagmentPage {
         );
         System.out.println("Asset added successfully!");
     }
-
+    /**
+     * Handles the editing of an existing asset by scanning for each line and giving the user options to update each attribute of an asset according to its id.
+     */
     public void clickEditAssets() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the Asset ID to edit: ");
@@ -144,14 +161,18 @@ public class AssetManagmentPage {
             }
         }
     }
-
+    /**
+     * Handles the removal of an asset.
+     */
     public void clickRemoveAssets() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the Asset ID to remove: ");
         int assetId = Integer.parseInt(scanner.nextLine());
         service.removeAsset(assetId);
     }
-
+    /**
+     * Displays all assets in a user-friendly format.
+     */
     public void clickDisplayAssets() {
         List<String> assets = service.getAllAssets();
         if (assets.isEmpty()) {
@@ -166,7 +187,9 @@ public class AssetManagmentPage {
             }
         }
     }
-
+    /**
+     * Displays input fields to add new assets .
+     */
     private Asset displayInputFields() {
         Scanner scanner = new Scanner(System.in);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

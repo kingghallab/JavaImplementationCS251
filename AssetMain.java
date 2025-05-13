@@ -1,4 +1,13 @@
 import java.util.Scanner;
+/**
+ * The `AssetMain` class serves as the main controller for asset management.
+ * It provides a menu-driven interface to access asset-related features.
+ *
+ * Features:
+ * - Options to add, edit, remove, and display assets.
+ * - Delegates asset operations to the `AssetManagmentPage` class.
+ * - Handles user input and navigation within the asset management system.
+ */
 
 public class AssetMain {
     private final AssetService service;

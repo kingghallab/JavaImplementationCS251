@@ -1,14 +1,35 @@
 import java.io.*;
 import java.util.*;
-
+/**
+ * The `AuthenticationService` class handles user authentication and management.
+ * It provides methods for user sign-up, login, and data persistence.
+ *
+ * Features:
+ * - Validates user sign-up information.
+ * - Checks user credentials during login.
+ * - Stores user data in a serialized file for persistence.
+ * - Loads user data from the serialized file on initialization.
+ */
 public class AuthenticationService {
     private static final String DATA_FILE = "users.ser";
     private List<User> users;
 
+    /**
+     * Constructor that initializes the user list by loading data from the file.
+     */
+
     public AuthenticationService() {
         users = loadUsers();
     }
-
+    /**
+     * Signs up a new user by validating input and saving user data.
+     *
+     * @param name     The user's full name.
+     * @param email    The user's email address.
+     * @param username The desired username.
+     * @param password The desired password.
+     * @return `true` if the sign-up is successful, `false` otherwise.
+     */
     public boolean signup(String name, String email, String username, String password) {
         if (!validateSignupInfo(name, email, username, password)) {
             return false;
@@ -22,7 +43,13 @@ public class AuthenticationService {
         saveUsers();
         return true;
     }
-
+    /**
+     * Logs in a user by validating their credentials.
+     *
+     * @param username The username of the user.
+     * @param password The password of the user.
+     * @return `true` if the login is successful, `false` otherwise.
+     */
     public boolean login(String username, String password) {
         User user = findUserByUsername(username);
         return user != null && user.getPassword().equals(password);
