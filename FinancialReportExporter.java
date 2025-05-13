@@ -32,11 +32,12 @@ public class FinancialReportExporter {
                 }
             }
 
-            System.out.println("\nFinancial Report for " + reportPeriod + ":");
+            System.out.println();
+            System.out.println("Financial Report for " + reportPeriod + ":");
             System.out.println("Income: $" + String.format("%.2f", income));
             System.out.println("Net Profit: $" + String.format("%.2f", income) + " (Profit)");
         } catch (IOException e) {
-            System.out.println("Error reading asset file: " + e.getMessage());
+            System.err.println("Error reading asset file: " + e.getMessage());
         }
     }
     /**
@@ -47,7 +48,7 @@ public class FinancialReportExporter {
      * @param zakatDue    The calculated Zakat amount due.
      */
     public static void exportZakatReport(String username, List<String> assetLines, double zakatDue) {
-        String reportFilePath = "src/resources/" + username + "_zakat_report.txt";
+        String reportFilePath = "resources/" + username + "_zakat_report.txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(reportFilePath))) {
             writer.write("Zakat Report for User: " + username + "\n");
@@ -62,7 +63,7 @@ public class FinancialReportExporter {
             writer.write("=====================================\n");
             System.out.println("Zakat report generated successfully at: " + reportFilePath);
         } catch (IOException e) {
-            System.out.println("Error writing Zakat report: " + e.getMessage());
+            System.err.println("Error writing Zakat report: " + e.getMessage());
         }
     }
 }

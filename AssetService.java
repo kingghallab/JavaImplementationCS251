@@ -27,7 +27,7 @@ public class AssetService {
      */
 
     public AssetService(String username) {
-        String directoryPath = "src/resources";
+        String directoryPath = "resources";
         ensureDirectoryExists(directoryPath);
         this.filePath = directoryPath + "/" + username + "_assets.txt";
         ensureFileExists();

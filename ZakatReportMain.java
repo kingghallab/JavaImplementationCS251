@@ -14,7 +14,7 @@ public class ZakatReportMain {
      *                 The method looks for a file named username_assets.txt in the resources directory.
      */
     public static void generateZakatReport(String username) {
-        String assetFile = "src/resources/" + username + "_assets.txt";
+        String assetFile = "resources/" + username + "_assets.txt";
 
         File file = new File(assetFile);
         if (!file.exists()) {

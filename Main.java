@@ -69,7 +69,8 @@ public class Main {
                                     assetMain.startAssetManagement();
                                     break;
                                 case "2":
-                                    FinancialReportExporter.generateFinancialReport("src/resources/karen_assets.txt", "Q1 2025");
+                                    String assetFilePath = "resources/" + loginUser + "_assets.txt";
+                                    FinancialReportExporter.generateFinancialReport(assetFilePath, "Q1 2025");
                                     break;
                                 case "3":
                                     ZakatReportMain.generateZakatReport(loginUser);
